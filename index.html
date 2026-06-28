@@ -1361,3 +1361,1060 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#07070f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GALAXY Travel">
+    <title>GALAXY Travel — رفيق سفرك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        :root {
+            --bg: #07070f;
+            --panel: #0d0d1a;
+            --panel2: #121226;
+            --border: #1c1c38;
+            --gold: #f5c842;
+            --gold2: #e0a800;
+            --green: #00ff88;
+            --blue: #4f8ef7;
+            --red: #ff5566;
+            --purple: #9b59f7;
+            --text: #dde0f0;
+            --muted: #5a5a80;
+            --r: 14px;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding-bottom: 80px
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0d1a, #13132a);
+            padding: 1.1rem 1.2rem .85rem;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: -.5px
+        }
+
+        .logo span {
+            color: var(--green)
+        }
+
+        .sub {
+            font-size: .68rem;
+            color: var(--muted);
+            margin-top: .15rem
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            display: inline-block;
+            margin-left: .4rem;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .4
+            }
+        }
+
+        .content {
+            padding: 1rem 1.1rem;
+            max-width: 620px;
+            margin: 0 auto
+        }
+
+        .page {
+            display: none;
+            animation: fade .25s ease
+        }
+
+        .page.active {
+            display: block
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(6px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .sec-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: .9rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .box-title {
+            font-size: .85rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: .75rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .7rem;
+            margin-bottom: .9rem
+        }
+
+        .box {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1rem 1.05rem;
+            margin-bottom: .9rem
+        }
+
+        .card {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: .9rem .85rem
+        }
+
+        .card-label {
+            font-size: .65rem;
+            color: var(--muted);
+            margin-bottom: .25rem
+        }
+
+        .card-value {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #fff
+        }
+
+        .alert {
+            border-radius: 12px;
+            padding: .85rem 1rem;
+            margin-bottom: .85rem;
+            font-size: .8rem;
+            line-height: 1.75;
+            border: 1px solid
+        }
+
+        .alert-gold {
+            background: rgba(245, 200, 66, .06);
+            border-color: rgba(245, 200, 66, .22)
+        }
+
+        .alert-gold strong {
+            color: var(--gold)
+        }
+
+        .alert-green {
+            background: rgba(0, 255, 136, .05);
+            border-color: rgba(0, 255, 136, .2)
+        }
+
+        .alert-green strong {
+            color: var(--green)
+        }
+
+        .alert-blue {
+            background: rgba(79, 142, 247, .06);
+            border-color: rgba(79, 142, 247, .22)
+        }
+
+        .alert-blue strong {
+            color: var(--blue)
+        }
+
+        .btn {
+            padding: .72rem 1rem;
+            border-radius: 11px;
+            font-size: .83rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: transform .1s;
+            width: 100%;
+            margin-bottom: .55rem
+        }
+
+        .btn:active {
+            transform: scale(.97)
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            color: #000
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, var(--green), #00cc66);
+            color: #000
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, var(--blue), #3366dd);
+            color: #fff
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border)
+        }
+
+        .btn-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .55rem
+        }
+
+        .btn-row .btn {
+            margin-bottom: 0
+        }
+
+        input,
+        select,
+        textarea {
+            background: #080812;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: .75rem .9rem;
+            border-radius: 10px;
+            font-size: .88rem;
+            outline: none;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            transition: border-color .2s
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold)
+        }
+
+        select option {
+            background: #0d0d1a
+        }
+
+        label {
+            font-size: .72rem;
+            color: var(--muted);
+            display: block;
+            margin-bottom: .35rem;
+            font-weight: 600
+        }
+
+        .field {
+            margin-bottom: .75rem
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        td {
+            padding: .6rem .5rem;
+            font-size: .79rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .03)
+        }
+
+        tr:last-child td {
+            border-bottom: none
+        }
+
+        .visa-tabs {
+            display: flex;
+            gap: .5rem;
+            margin-bottom: .9rem;
+            overflow-x: auto;
+            padding-bottom: .3rem
+        }
+
+        .visa-tab {
+            flex-shrink: 0;
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: .5rem .9rem;
+            font-size: .74rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            color: var(--text);
+            white-space: nowrap;
+            transition: .15s
+        }
+
+        .visa-tab.active {
+            border-color: var(--green);
+            background: rgba(0, 255, 136, .1);
+            color: var(--green)
+        }
+
+        .dest-card {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: .9rem;
+            margin-bottom: .6rem;
+            transition: .15s
+        }
+
+        .dest-head {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            margin-bottom: .4rem
+        }
+
+        .dest-flag {
+            font-size: 1.6rem
+        }
+
+        .dest-name {
+            font-size: .95rem;
+            font-weight: 800;
+            color: #fff;
+            flex: 1
+        }
+
+        .dest-meta {
+            font-size: .72rem;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .visa-badge {
+            display: inline-block;
+            padding: .18rem .55rem;
+            border-radius: 20px;
+            font-size: .62rem;
+            font-weight: 800
+        }
+
+        .visa-free {
+            background: rgba(0, 255, 136, .15);
+            color: var(--green)
+        }
+
+        .visa-evisa {
+            background: rgba(79, 142, 247, .15);
+            color: var(--blue)
+        }
+
+        .visa-req {
+            background: rgba(245, 200, 66, .15);
+            color: var(--gold)
+        }
+
+        .search-result {
+            background: rgba(0, 255, 136, .04);
+            border: 1px solid rgba(0, 255, 136, .18);
+            border-radius: var(--r);
+            padding: 1rem;
+            margin-top: .8rem
+        }
+
+        .cheapest-month {
+            background: linear-gradient(135deg, rgba(245, 200, 66, .12), rgba(0, 255, 136, .06));
+            border: 1px solid rgba(245, 200, 66, .25);
+            border-radius: 12px;
+            padding: .85rem;
+            margin-bottom: .8rem;
+            text-align: center
+        }
+
+        .cheap-label {
+            font-size: .7rem;
+            color: var(--muted)
+        }
+
+        .cheap-value {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-top: .2rem
+        }
+
+        .trip-day {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: .9rem 1rem;
+            margin-bottom: .55rem
+        }
+
+        .trip-day-header {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            margin-bottom: .45rem
+        }
+
+        .day-num {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            color: #000;
+            font-weight: 900;
+            font-size: .78rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .day-title {
+            font-size: .85rem;
+            font-weight: 800;
+            color: #fff
+        }
+
+        .day-items {
+            font-size: .77rem;
+            color: var(--muted);
+            line-height: 1.8
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            padding: .7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            cursor: pointer
+        }
+
+        .check-box {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: .2s
+        }
+
+        .check-box.done {
+            background: var(--green);
+            border-color: var(--green)
+        }
+
+        .check-box.done::after {
+            content: '✓';
+            color: #000;
+            font-size: .75rem;
+            font-weight: 900
+        }
+
+        .check-text {
+            font-size: .83rem;
+            flex: 1
+        }
+
+        .check-text.done {
+            text-decoration: line-through;
+            color: var(--muted)
+        }
+
+        .check-badge {
+            font-size: .66rem;
+            color: var(--gold);
+            background: rgba(245, 200, 66, .1);
+            padding: .15rem .5rem;
+            border-radius: 20px;
+            white-space: nowrap
+        }
+
+        .prog-bar {
+            background: var(--border);
+            border-radius: 20px;
+            height: 6px;
+            margin-top: .5rem;
+            overflow: hidden
+        }
+
+        .prog-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, var(--gold), var(--green));
+            transition: width .5s
+        }
+
+        .ai-response {
+            background: #05050e;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: .9rem;
+            margin-top: .8rem;
+            font-size: .83rem;
+            line-height: 1.85;
+            white-space: pre-wrap;
+            display: none;
+            min-height: 60px
+        }
+
+        .quick-chips {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap;
+            margin-bottom: .85rem
+        }
+
+        .chip {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: .4rem .75rem;
+            font-size: .72rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            color: var(--text);
+            white-space: nowrap;
+            transition: .15s
+        }
+
+        .chip:active {
+            transform: scale(.96)
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-around;
+            padding: .45rem .2rem .5rem;
+            z-index: 200
+        }
+
+        .nav-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: 'Cairo', sans-serif;
+            font-size: .58rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: .3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .18rem;
+            transition: .2s
+        }
+
+        .nav-btn.active {
+            color: var(--gold)
+        }
+
+        .nav-ico {
+            font-size: 1.15rem;
+            line-height: 1
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div>
+            <div class="logo">GALAXY <span>Travel</span> ✈</div>
+            <div class="sub">رفيق سفرك من المطار للعودة — للمسافر الجزائري</div>
+        </div>
+        <div style="font-size:.66rem;color:var(--muted)">مباشر<span class="status-dot"></span></div>
+    </div>
+
+    <div class="content">
+
+        <div class="page active" id="p-search">
+            <div class="sec-title"><span>🔍</span> ابحث عن رحلتك</div>
+            <div class="box">
+                <div class="box-title">🌍 إلى أين تسافر؟</div>
+                <div class="field">
+                    <label>الوجهة</label>
+                    <select id="s-dest" onchange="updateSearch()">
+                        <optgroup label="🟢 بدون فيزا للجزائريين">
+                            <option value="my|Kuala Lumpur|كوالالمبور|KUL">🇲🇾 ماليزيا — كوالالمبور</option>
+                            <option value="tr|Istanbul|اسطنبول|IST">🇹🇷 تركيا — اسطنبول</option>
+                            <option value="th|Bangkok|بانكوك|BKK">🇹🇭 تايلاند — بانكوك</option>
+                            <option value="tn|Tunis|تونس|TUN">🇹🇳 تونس</option>
+                        </optgroup>
+                        <optgroup label="🔵 فيزا إلكترونية">
+                            <option value="ae|Dubai|دبي|DXB">🇦🇪 الإمارات — دبي</option>
+                            <option value="eg|Cairo|القاهرة|CAI">🇪🇬 مصر — القاهرة</option>
+                            <option value="qa|Doha|الدوحة|DOH">🇶🇦 قطر — الدوحة</option>
+                        </optgroup>
+                        <optgroup label="🟡 فيزا عادية">
+                            <option value="sa|Jeddah|جدة|JED">🇸🇦 السعودية — عمرة</option>
+                            <option value="es|Barcelona|برشلونة|BCN">🇪🇸 إسبانيا — برشلونة</option>
+                            <option value="fr|Paris|باريس|CDG">🇫🇷 فرنسا — باريس</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="grid-2" style="margin-bottom:.5rem">
+                    <div class="field" style="margin-bottom:0">
+                        <label>تاريخ الذهاب</label>
+                        <input type="date" id="s-date" onchange="updateSearch()">
+                    </div>
+                    <div class="field" style="margin-bottom:0">
+                        <label>عدد الأيام</label>
+                        <select id="s-days" onchange="updateSearch()">
+                            <option value="5">5 أيام</option>
+                            <option value="7" selected>7 أيام</option>
+                            <option value="10">10 أيام</option>
+                            <option value="14">14 يوم</option>
+                            <option value="21">21 يوم</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="s-return" style="font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:.3rem">
+                </div>
+            </div>
+
+            <div class="cheapest-month">
+                <div class="cheap-label">💡 أرخص وقت للسفر إلى هذه الوجهة</div>
+                <div class="cheap-value" id="cheap-month">—</div>
+            </div>
+
+            <div class="box">
+                <div class="box-title">✈️ ابحث عن أرخص تذكرة (سعر حي مباشر)</div>
+                <a href="#" id="btn-sky" target="_blank" class="btn btn-gold">🔍 Skyscanner — أرخص سعر الآن</a>
+                <a href="#" id="btn-gflights" target="_blank" class="btn btn-blue">🔍 Google Flights — قارن الأسعار</a>
+                <div class="alert alert-gold" style="margin:.6rem 0 0">
+                    <strong>💡 كيف يعمل:</strong> الزر يفتح مباشرة على وجهتك وتاريخك مع أرخص الأسعار الحية من الجزائر
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="box-title">🏨 ابحث عن أرخص نزل (سعر حي مباشر)</div>
+                <a href="#" id="btn-booking" target="_blank" class="btn btn-green">🏨 Booking — مرتّب من الأرخص</a>
+                <div class="btn-row" style="margin-top:.3rem">
+                    <a href="#" id="btn-agoda" target="_blank" class="btn btn-outline">Agoda</a>
+                    <a href="#" id="btn-airbnb" target="_blank" class="btn btn-outline">Airbnb</a>
+                </div>
+                <a href="#" id="btn-nusuk" target="_blank" class="btn btn-outline"
+                    style="margin-top:.3rem;display:none">🕋 نسك — باقات العمرة الرسمية</a>
+                <div class="alert alert-green" style="margin:.6rem 0 0">
+                    <strong>✅ مرتّب تلقائياً:</strong> يفتح على مدينتك بتواريخك، من الأرخص للأغلى
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="p-dest">
+            <div class="sec-title"><span>🛂</span> وجهات حسب الفيزا</div>
+            <div class="alert alert-blue">
+                <strong>للمسافر الجزائري:</strong> اختر حسب نوع الفيزا. الأخضر = سافر مباشرة بدون تعقيد
+            </div>
+            <div class="visa-tabs">
+                <div class="visa-tab active" onclick="filterVisa('all',this)">الكل</div>
+                <div class="visa-tab" onclick="filterVisa('free',this)">🟢 بدون فيزا</div>
+                <div class="visa-tab" onclick="filterVisa('evisa',this)">🔵 فيزا إلكترونية</div>
+                <div class="visa-tab" onclick="filterVisa('req',this)">🟡 فيزا عادية</div>
+            </div>
+            <div id="dest-list"></div>
+        </div>
+
+        <div class="page" id="p-plan">
+            <div class="sec-title"><span>📅</span> برنامج رحلتك</div>
+            <div class="box">
+                <div class="box-title">🗺 خطة يومية كاملة</div>
+                <div class="field"><label>الوجهة</label>
+                    <select id="pl-dest" onchange="generatePlan()">
+                        <option value="MY">🇲🇾 ماليزيا — كوالالمبور</option>
+                        <option value="TR">🇹🇷 تركيا — اسطنبول</option>
+                        <option value="TH">🇹🇭 تايلاند — بانكوك</option>
+                        <option value="AE">🇦🇪 الإمارات — دبي</option>
+                        <option value="SA">🇸🇦 السعودية — عمرة</option>
+                        <option value="ES">🇪🇸 إسبانيا — برشلونة ومدريد</option>
+                        <option value="EG">🇪🇬 مصر — القاهرة</option>
+                        <option value="FR">🇫🇷 فرنسا — باريس</option>
+                    </select>
+                </div>
+                <div class="field"><label>عدد الأيام</label>
+                    <select id="pl-days" onchange="generatePlan()">
+                        <option value="5">5 أيام</option>
+                        <option value="7" selected>7 أيام</option>
+                        <option value="10">10 أيام</option>
+                    </select>
+                </div>
+                <div id="pl-output"></div>
+            </div>
+            <div class="box">
+                <div class="box-title">✅ قائمة التجهيز</div>
+                <div style="margin-bottom:.75rem">
+                    <div
+                        style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-bottom:.3rem">
+                        <span>التقدم</span><span id="check-count">0/10 مكتملة</span>
+                    </div>
+                    <div class="prog-bar">
+                        <div class="prog-fill" id="check-prog" style="width:0%"></div>
+                    </div>
+                </div>
+                <div id="checklist-items">
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">جواز السفر صالح 6 أشهر</div>
+                        <div class="check-badge">ضروري</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">تأشيرة الدخول (إن لزمت)</div>
+                        <div class="check-badge">حسب البلد</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">تذكرة الطيران مؤكدة</div>
+                        <div class="check-badge">احجز مبكراً</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">حجز الفندق لكل الليالي</div>
+                        <div class="check-badge">ضروري</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">تأمين السفر الشامل</div>
+                        <div class="check-badge">~30$</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">شريحة eSIM أو محلية</div>
+                        <div class="check-badge">~15$</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">بطارية احتياطية</div>
+                        <div class="check-badge">~20$</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">أدوية شخصية</div>
+                        <div class="check-badge">شخصي</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">صورة من جواز السفر في الهاتف</div>
+                        <div class="check-badge">احترازي</div>
+                    </div>
+                    <div class="checklist-item" onclick="tc(this)">
+                        <div class="check-box"></div>
+                        <div class="check-text">مبلغ نقدي طوارئ بالدولار</div>
+                        <div class="check-badge">احترازي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="p-budget">
+            <div class="sec-title"><span>💰</span> ميزانيتك</div>
+            <div class="box">
+                <div class="box-title">📊 احسب تكلفة رحلتك كاملة</div>
+                <div class="field"><label>الوجهة</label>
+                    <select id="bd-dest" onchange="calcBudget()">
+                        <option value="MY" data-f="480" data-h="20" data-fd="7" data-t="4">🇲🇾 ماليزيا</option>
+                        <option value="TR" data-f="220" data-h="30" data-fd="12" data-t="4">🇹🇷 تركيا</option>
+                        <option value="TH" data-f="500" data-h="18" data-fd="7" data-t="4">🇹🇭 تايلاند</option>
+                        <option value="AE" data-f="320" data-h="60" data-fd="20" data-t="10">🇦🇪 الإمارات</option>
+                        <option value="SA" data-f="280" data-h="25" data-fd="10" data-t="6">🇸🇦 السعودية</option>
+                        <option value="EG" data-f="160" data-h="20" data-fd="8" data-t="3">🇪🇬 مصر</option>
+                        <option value="ES" data-f="420" data-h="75" data-fd="22" data-t="9">🇪🇸 إسبانيا</option>
+                        <option value="FR" data-f="450" data-h="90" data-fd="28" data-t="11">🇫🇷 فرنسا</option>
+                    </select>
+                </div>
+                <div class="field"><label>عدد الأيام</label>
+                    <select id="bd-days" onchange="calcBudget()">
+                        <option value="5">5 أيام</option>
+                        <option value="7" selected>7 أيام</option>
+                        <option value="10">10 أيام</option>
+                        <option value="14">14 يوم</option>
+                    </select>
+                </div>
+                <div id="bd-output"></div>
+            </div>
+            <div class="box">
+                <div class="box-title">💱 حاسبة العملات</div>
+                <div class="field"><label>المبلغ بالدولار</label>
+                    <input type="number" id="cur-amount" value="100" oninput="calcCurrency()">
+                </div>
+                <div class="field"><label>العملة</label>
+                    <select id="cur-select" onchange="calcCurrency()">
+                        <option value="137" data-sym="DZD">🇩🇿 دينار جزائري</option>
+                        <option value="4.7" data-sym="MYR">🇲🇾 رينغيت ماليزي</option>
+                        <option value="32" data-sym="TRY">🇹🇷 ليرة تركية</option>
+                        <option value="35" data-sym="THB">🇹🇭 بات تايلاندي</option>
+                        <option value="3.75" data-sym="SAR">🇸🇦 ريال سعودي</option>
+                        <option value="3.67" data-sym="AED">🇦🇪 درهم إماراتي</option>
+                        <option value="1.08" data-sym="EUR">🇪🇺 يورو</option>
+                    </select>
+                </div>
+                <div class="search-result" style="text-align:center;margin-top:0">
+                    <div style="font-size:1.6rem;font-weight:900;color:var(--green)" id="cur-result">13,700 DZD</div>
+                    <div style="font-size:.72rem;color:var(--muted);margin-top:.3rem" id="cur-note">1$ = 137 DZD</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="p-ai">
+            <div class="sec-title"><span>🤖</span> المساعد الذكي</div>
+            <div class="alert alert-green">
+                <strong>✅ مساعدك الشخصي للسفر</strong> — اسأل عن أي شيء: خطة رحلة، أسعار تقريبية، نصائح، فيزا
+            </div>
+            <div class="box">
+                <div class="quick-chips">
+                    <span class="chip"
+                        onclick="qa('خطط لي رحلة 7 أيام اقتصادية إلى ماليزيا من الجزائر: الطيران، الفندق الرخيص الجيد، الأكل، والأماكن، مع التكلفة الكاملة بالدولار')">🇲🇾
+                        ماليزيا 7 أيام</span>
+                    <span class="chip"
+                        onclick="qa('برنامج عمرة 10 أيام اقتصادي من الجزائر: أرخص تذكرة، فندق قريب من الحرم رخيص، أكل رخيص، والتكلفة الكاملة')">🕋
+                        عمرة اقتصادية</span>
+                    <span class="chip"
+                        onclick="qa('ما الدول التي يدخلها الجزائري بدون فيزا أو بفيزا إلكترونية في 2026؟ اذكرها كلها')">🛂
+                        دول بدون فيزا</span>
+                    <span class="chip"
+                        onclick="qa('نصائح لتوفير المال في السفر: كيف أجد أرخص تذكرة وأرخص فندق جيد؟')">💰 نصائح
+                        التوفير</span>
+                </div>
+                <div class="field">
+                    <label>سؤالك</label>
+                    <textarea id="ai-input" placeholder="مثال: خطط لي رحلة 7 أيام إلى تركيا بميزانية 800 دولار..."
+                        style="min-height:90px;resize:none"></textarea>
+                </div>
+                <button class="btn btn-gold" id="ai-btn" onclick="askAI()">🤖 اسأل المساعد</button>
+                <div id="ai-response" class="ai-response"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="navbar">
+        <button class="nav-btn active" onclick="nav('search',this)"><span class="nav-ico">🔍</span>ابحث</button>
+        <button class="nav-btn" onclick="nav('dest',this)"><span class="nav-ico">🛂</span>وجهات</button>
+        <button class="nav-btn" onclick="nav('plan',this)"><span class="nav-ico">📅</span>برنامج</button>
+        <button class="nav-btn" onclick="nav('budget',this)"><span class="nav-ico">💰</span>ميزانية</button>
+        <button class="nav-btn" onclick="nav('ai',this)"><span class="nav-ico">🤖</span>مساعد</button>
+    </div>
+
+    <script>
+        const DESTS = [
+            { code: 'MY', flag: '🇲🇾', name: 'ماليزيا — كوالالمبور', visa: 'free', visaTxt: 'بدون فيزا 90 يوم', price: '480-900$', cheap: 'مارس – أبريل', note: 'مسلم فريندلي، رخيصة، طبيعة خلابة' },
+            { code: 'TR', flag: '🇹🇷', name: 'تركيا — اسطنبول', visa: 'free', visaTxt: 'بدون فيزا', price: '220-500$', cheap: 'نوفمبر – فبراير', note: 'قريبة، تاريخ إسلامي، أكل رائع' },
+            { code: 'TH', flag: '🇹🇭', name: 'تايلاند — بانكوك', visa: 'free', visaTxt: 'بدون فيزا 30 يوم', price: '500-950$', cheap: 'مايو – أكتوبر', note: 'رخيصة جداً، شواطئ، معابد' },
+            { code: 'TN', flag: '🇹🇳', name: 'تونس', visa: 'free', visaTxt: 'بدون فيزا', price: '80-200$', cheap: 'مايو – يونيو', note: 'الأقرب والأرخص، شواطئ المتوسط' },
+            { code: 'AE', flag: '🇦🇪', name: 'الإمارات — دبي', visa: 'evisa', visaTxt: 'فيزا إلكترونية', price: '300-700$', cheap: 'مايو – سبتمبر', note: 'حديثة، تسوق، فخامة' },
+            { code: 'EG', flag: '🇪🇬', name: 'مصر — القاهرة', visa: 'evisa', visaTxt: 'فيزا عند الوصول/إلكترونية', price: '150-400$', cheap: 'أكتوبر – أبريل', note: 'تاريخ، أهرامات، رخيصة' },
+            { code: 'QA', flag: '🇶🇦', name: 'قطر — الدوحة', visa: 'evisa', visaTxt: 'فيزا إلكترونية', price: '350-700$', cheap: 'مايو – سبتمبر', note: 'حديثة، آمنة، متاحف' },
+            { code: 'SA', flag: '🇸🇦', name: 'السعودية — عمرة', visa: 'req', visaTxt: 'فيزا عمرة/سياحة', price: '250-600$', cheap: 'أكتوبر – فبراير', note: 'الحرمان الشريفان، روحانية' },
+            { code: 'ES', flag: '🇪🇸', name: 'إسبانيا — برشلونة', visa: 'req', visaTxt: 'فيزا شنغن', price: '380-850$', cheap: 'مايو – يونيو', note: 'تراث أندلسي، شواطئ، فن' },
+            { code: 'FR', flag: '🇫🇷', name: 'فرنسا — باريس', visa: 'req', visaTxt: 'فيزا شنغن', price: '400-900$', cheap: 'مايو، سبتمبر', note: 'ثقافة، معالم، تسوق' }
+        ];
+
+        function nav(page, el) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('p-' + page).classList.add('active');
+            el.classList.add('active');
+            window.scrollTo(0, 0);
+            if (page === 'budget') { calcBudget(); calcCurrency() }
+            if (page === 'plan') { generatePlan() }
+            if (page === 'dest') { renderDests('all') }
+        }
+
+        const cheapMonths = { my: 'مارس – أبريل (الأرخص)', tr: 'نوفمبر – فبراير', th: 'مايو – أكتوبر', tn: 'مايو – يونيو', ae: 'مايو – سبتمبر', eg: 'أكتوبر – أبريل', qa: 'مايو – سبتمبر', sa: 'شوال – ذو القعدة أرخص من رمضان', es: 'مايو – يونيو', fr: 'مايو، سبتمبر' };
+
+        function fmtDate(d) { return d.toISOString().split('T')[0] }
+        function fmtSky(d) { return d.toISOString().split('T')[0].replace(/-/g, '').slice(2) }
+
+        function updateSearch() {
+            const val = document.getElementById('s-dest').value.split('|');
+            const code = val[0], cityEn = val[1], iata = val[3];
+            const dateStr = document.getElementById('s-date').value;
+            const days = parseInt(document.getElementById('s-days').value);
+            document.getElementById('cheap-month').textContent = cheapMonths[code] || '—';
+            if (!dateStr) { document.getElementById('s-return').textContent = '⚠ اختر تاريخ الذهاب أولاً'; return }
+            const dep = new Date(dateStr);
+            const ret = new Date(dep); ret.setDate(ret.getDate() + days);
+            document.getElementById('s-return').textContent = '📅 العودة: ' + fmtDate(ret) + ' (' + days + ' أيام)';
+            const depSky = fmtSky(dep), retSky = fmtSky(ret), depISO = fmtDate(dep), retISO = fmtDate(ret);
+            document.getElementById('btn-sky').href = `https://www.skyscanner.net/transport/flights/alg/${iata.toLowerCase()}/${depSky}/${retSky}/?adults=1&cabinclass=economy&preferdirects=false`;
+            document.getElementById('btn-gflights').href = `https://www.google.com/travel/flights?q=Flights%20from%20ALG%20to%20${iata}%20on%20${depISO}%20returning%20${retISO}`;
+            document.getElementById('btn-booking').href = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(cityEn)}&checkin=${depISO}&checkout=${retISO}&order=price&group_adults=1&no_rooms=1`;
+            document.getElementById('btn-agoda').href = `https://www.agoda.com/search?city=${encodeURIComponent(cityEn)}&checkIn=${depISO}&checkOut=${retISO}&sort=price`;
+            document.getElementById('btn-airbnb').href = `https://www.airbnb.com/s/${encodeURIComponent(cityEn)}/homes?checkin=${depISO}&checkout=${retISO}`;
+            const nusuk = document.getElementById('btn-nusuk');
+            if (code === 'sa') { nusuk.style.display = 'block'; nusuk.href = 'https://nusuk.sa/' } else { nusuk.style.display = 'none' }
+        }
+
+        function renderDests(filter) {
+            const list = DESTS.filter(d => filter === 'all' || d.visa === filter);
+            const badgeClass = { free: 'visa-free', evisa: 'visa-evisa', req: 'visa-req' };
+            document.getElementById('dest-list').innerHTML = list.map(d => `
+    <div class="dest-card">
+      <div class="dest-head">
+        <span class="dest-flag">${d.flag}</span>
+        <span class="dest-name">${d.name}</span>
+        <span class="visa-badge ${badgeClass[d.visa]}">${d.visaTxt}</span>
+      </div>
+      <div class="dest-meta">💰 التذكرة: ${d.price} &nbsp;•&nbsp; 📅 أرخص وقت: ${d.cheap}<br>✨ ${d.note}</div>
+    </div>`).join('');
+        }
+        function filterVisa(f, el) {
+            document.querySelectorAll('.visa-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active'); renderDests(f);
+        }
+
+        function calcBudget() {
+            const sel = document.getElementById('bd-dest');
+            const o = sel.options[sel.selectedIndex];
+            const d = parseInt(document.getElementById('bd-days').value);
+            const f = +o.dataset.f, h = +o.dataset.h * d, fd = +o.dataset.fd * d, t = +o.dataset.t * d, ins = 35, misc = 60;
+            const tot = f + h + fd + t + ins + misc, pp = Math.round(tot / d);
+            document.getElementById('bd-output').innerHTML = `
+    <table>
+      <tr><td>✈️ التذكرة</td><td style="color:var(--gold);text-align:left;font-weight:800">~${f}$</td></tr>
+      <tr><td>🏨 الفندق (${d} ليالي)</td><td style="color:var(--gold);text-align:left;font-weight:800">~${h}$</td></tr>
+      <tr><td>🍜 الأكل</td><td style="color:var(--gold);text-align:left;font-weight:800">~${fd}$</td></tr>
+      <tr><td>🚌 المواصلات</td><td style="color:var(--gold);text-align:left;font-weight:800">~${t}$</td></tr>
+      <tr><td>🛡 التأمين</td><td style="color:var(--gold);text-align:left;font-weight:800">~${ins}$</td></tr>
+      <tr><td>🛍 طوارئ</td><td style="color:var(--gold);text-align:left;font-weight:800">~${misc}$</td></tr>
+      <tr style="background:rgba(245,200,66,.07)"><td><strong style="color:var(--gold)">💰 المجموع</strong></td><td style="color:var(--gold);font-weight:900;font-size:1rem;text-align:left">~${tot}$</td></tr>
+      <tr><td style="color:var(--green)">📍 يومياً</td><td style="color:var(--green);text-align:left;font-weight:800">~${pp}$/يوم</td></tr>
+    </table>`;
+        }
+
+        function calcCurrency() {
+            const amt = parseFloat(document.getElementById('cur-amount').value) || 0;
+            const sel = document.getElementById('cur-select');
+            const rate = parseFloat(sel.value);
+            const sym = sel.options[sel.selectedIndex].dataset.sym;
+            document.getElementById('cur-result').textContent = (amt * rate).toLocaleString('en-US', { maximumFractionDigits: 0 }) + ' ' + sym;
+            document.getElementById('cur-note').textContent = '1$ = ' + rate + ' ' + sym;
+        }
+
+        const planData = {
+            MY: { 1: 'الوصول كوالالمبور — فندق بوكيت بينتانغ، استكشاف المنطقة', 2: 'برجا بتروناس التوأم، حديقة KLCC، النافورة', 3: 'كهوف باتو — التمثال الذهبي، مسجد بوترا الوردي', 4: 'بوتراجايا العاصمة الإدارية، رحلة نهرية', 5: 'جزيرة لنكاوي أو بينانغ', 6: 'أسواق الطعام، تسوق، برج KL', 7: 'العودة' },
+            TR: { 1: 'الوصول اسطنبول — السلطان أحمد، تأقلم', 2: 'آيا صوفيا، المسجد الأزرق، الحمام التركي', 3: 'السوق الكبير، سوق البهارات، قصر توبكابي', 4: 'تقسيم، شارع الاستقلال، برج غلطة', 5: 'الجانب الآسيوي — كاديكوي، أوسكودار', 6: 'جزر الأميرات — رحلة بحرية', 7: 'العودة' },
+            TH: { 1: 'الوصول بانكوك — خاو سان رود', 2: 'القصر الكبير، معبد البوذا الزمردي', 3: 'أسواق الليل، نهر تشاو فرايا', 4: 'معبد وات أرون، الأسواق العائمة', 5: 'مساج تايلاندي، تسوق المولات', 6: 'يوم حر/شاطئ قريب', 7: 'العودة' },
+            AE: { 1: 'الوصول دبي — ديرة القديمة، الخور', 2: 'برج خليفة، دبي مول، النافورة', 3: 'سفاري الصحراء — عشاء بدوي', 4: 'دبي مارينا، JBR، الشاطئ', 5: 'القرية العالمية، تسوق', 6: 'يوم حر', 7: 'العودة' },
+            SA: { 1: 'الوصول جدة — التوجه لمكة، العشاء بالحرم', 2: 'العمرة: إحرام ← طواف ← سعي ← تقصير', 3: 'الإكثار من الطواف والصلاة بالحرم', 4: 'زيارة معالم مكة، سوق المعلاة', 5: 'القطار السريع ← المدينة المنورة', 6: 'المسجد النبوي، الروضة الشريفة', 7: 'مسجد قباء، القبلتين، العودة' },
+            ES: { 1: 'برشلونة — حي غوتيك، لاس رامبلاس', 2: 'ساغرادا فاميليا، حديقة غويل', 3: 'حي البورن، متحف بيكاسو، الميناء', 4: 'قطار سريع ← مدريد', 5: 'متحف برادو، بلازا مايور', 6: 'توليدو (الأندلس القديمة) رحلة يوم', 7: 'العودة' },
+            EG: { 1: 'القاهرة — خان الخليلي', 2: 'أهرامات الجيزة وأبو الهول', 3: 'المتحف المصري الكبير', 4: 'القلعة، مسجد محمد علي، الأزهر', 5: 'الإسكندرية — الكورنيش', 6: 'قلعة قايتباي، مكتبة الإسكندرية', 7: 'العودة' },
+            FR: { 1: 'باريس — شانزليزيه، قوس النصر', 2: 'برج إيفل، نهر السين', 3: 'متحف اللوفر، الموناليزا', 4: 'قصر فرساي', 5: 'مونمارتر، كاتدرائية القلب المقدس', 6: 'تسوق، ديزني لاند (اختياري)', 7: 'العودة' }
+        };
+        function generatePlan() {
+            const dest = document.getElementById('pl-dest').value;
+            const days = parseInt(document.getElementById('pl-days').value);
+            const p = planData[dest]; if (!p) return;
+            let h = '';
+            for (let i = 1; i <= days; i++) {
+                h += `<div class="trip-day"><div class="trip-day-header"><div class="day-num">${i}</div><div class="day-title">اليوم ${i}</div></div><div class="day-items">${p[i] || '🗺 استكشاف حر واسترخاء'}</div></div>`;
+            }
+            document.getElementById('pl-output').innerHTML = h;
+        }
+
+        function tc(el) {
+            el.querySelector('.check-box').classList.toggle('done');
+            el.querySelector('.check-text').classList.toggle('done');
+            const all = document.querySelectorAll('#checklist-items .checklist-item').length;
+            const done = document.querySelectorAll('#checklist-items .check-box.done').length;
+            document.getElementById('check-count').textContent = done + '/' + all + ' مكتملة';
+            document.getElementById('check-prog').style.width = Math.round(done / all * 100) + '%';
+        }
+
+        function qa(q) { document.getElementById('ai-input').value = q; askAI() }
+        async function askAI() {
+            const q = document.getElementById('ai-input').value.trim();
+            const res = document.getElementById('ai-response');
+            const btn = document.getElementById('ai-btn');
+            if (!q) return;
+            res.style.display = 'block'; res.style.color = 'var(--gold)'; res.textContent = '⏳ المساعد يفكر...';
+            btn.disabled = true; btn.textContent = '⏳ يفكر...';
+            try {
+                const r = await fetch('https://api.anthropic.com/v1/messages', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-6', max_tokens: 1200,
+                        system: 'أنت خبير سفر متخصص للمسافرين الجزائريين. تعطي خططاً عملية ومحددة بأرقام: أسعار تقريبية بالدولار، أسماء أحياء وفنادق اقتصادية، نصائح توفير، متطلبات الفيزا. أجب بالعربية بأسلوب منظم وواضح. ابدأ بالمعلومة الأهم. كن دقيقاً ومفيداً.',
+                        messages: [{ role: 'user', content: q }]
+                    })
+                });
+                const data = await r.json();
+                if (data.content && data.content[0] && data.content[0].text) {
+                    res.style.color = 'var(--text)'; res.textContent = data.content[0].text;
+                } else { res.style.color = 'var(--red)'; res.textContent = 'حدث خطأ. حاول مجدداً.' }
+            } catch (e) {
+                res.style.color = 'var(--red)'; res.textContent = '⚠️ تعذر الاتصال. تأكد من الإنترنت وحاول مجدداً.';
+            } finally { btn.disabled = false; btn.textContent = '🤖 اسأل المساعد' }
+        }
+
+        (function () {
+            const t = new Date(); t.setDate(t.getDate() + 14);
+            document.getElementById('s-date').value = fmtDate(t);
+            updateSearch(); renderDests('all'); calcBudget(); calcCurrency(); generatePlan();
+        })();
+    </script>
+</body>
+
+</html>
